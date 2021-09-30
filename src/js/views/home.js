@@ -1,15 +1,61 @@
-import React from "react";
-import rigoImage from "../../img/rigo-baby.jpg";
-import "../../styles/home.scss";
+import React, { useState } from "react";
 
-export const Home = () => (
-	<div className="text-center mt-5">
-		<h1>Hello Rigo!</h1>
-		<p>
-			<img src={rigoImage} />
-		</p>
-		<a href="#" className="btn btn-success">
-			If you see this green button, bootstrap is working
-		</a>
-	</div>
-);
+export function Home() {
+	const [inputValue, setInputValue] = useState("");
+	const [todo, setTodo] = useState([]);
+	let [counter, setCounter] = useState(0);
+	const addTodo = text => {
+		let newTodo = [...todo, text];
+		setTodo(newTodo);
+	};
+	const handleKey = event => {
+		if (event.key === "Enter" && inputValue !== " " && inputValue !== "") {
+			addTodo(inputValue);
+			setCounter(counter + 1);
+			setInputValue("");
+		}
+	};
+
+	const DeleteItems = indexItem => {
+		setTodo(prevState => prevState.filter((t, index) => index !== indexItem));
+		setCounter(counter - 1);
+	};
+
+	return (
+		<>
+			<div className="container-fluid ">
+				<div className="d-flex justify-content-center todo">todos</div>
+
+				<input
+					onChange={e => setInputValue(e.target.value)}
+					onKeyPressCapture={e => handleKey(e)}
+					type="text"
+					size="72"
+					value={inputValue}
+					placeholder="What need to be done?"
+				/>
+
+				<div>
+					<ul>
+						{todo.map((t, index) => (
+							<li key={index} className="list-group-item index">
+								{t}
+								<button className="btn DelItem" onClick={() => DeleteItems(index)}>
+									<i className="fas fa-times" />
+								</button>
+							</li>
+						))}
+						<li className="list-group-item">
+							{"" + (counter == 0 ? "No tasks, add a task" : counter + " items left")}
+						</li>
+					</ul>
+				</div>
+				<div className="d-flex justify-content-center finalbut">
+					<button type="button" className="btn btn-danger DelAll ">
+						{counter == 0 ? "Nothing to delete" : " "}
+					</button>
+				</div>
+			</div>
+		</>
+	);
+}

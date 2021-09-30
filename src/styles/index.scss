@@ -1,3 +1,80 @@
-/* 
-    General Styles
-*/
+@import "~bootstrap/scss/bootstrap.scss";
+body{
+    font-family: 'Shadows Into Light', cursive;
+    background: url(https://t4.ftcdn.net/jpg/01/18/68/39/360_F_118683953_kHB2QqUDiOiCasYItJzG9I9rHNfBNbzx.jpg);
+    background-repeat:repeat;
+}
+.todo{
+    color: rgb(179, 168, 168);
+    font-size: 100px;
+    font-family: 'Shadows Into Light';
+}
+.container{
+    box-shadow: 20%;
+}
+
+.list-group-item{
+    display:inline;
+    background-color: rgb(241, 241, 241);
+    border-color: gray;
+    border: 1%;
+    box-shadow:8px 8px 10px gray;
+}
+input
+{
+    background-color: rgb(241, 241, 241);
+    border-color: rgb(201, 195, 195);
+    border: 1%;
+    border-bottom: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    height: 50px;
+    padding-left: 20px;
+    box-shadow:8px 8px 10px gray
+
+
+}
+.index{
+    font-size: 20px;
+}
+li{
+    
+    width: 758.8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    flex-direction: column;
+    align-items: center;
+}
+
+ul{
+    width: 758.8px;
+    padding: 0px;
+    display: flex;
+    margin: auto;
+    flex-direction: column;
+    align-items: center;
+}
+    
+.btn.DelItem{
+    color: rgb(228, 169, 169);
+    font-size: 20px;
+    float: right;
+    visibility: hidden;
+}
+
+.list-group-item:hover{
+    
+    .btn.DelItem{
+        visibility: visible;
+    }
+    .btn.DelItem:hover{
+        color: red;
+    }
+}
+.finalbut{
+    margin-top: 30px;
+}
