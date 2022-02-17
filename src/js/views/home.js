@@ -50,10 +50,12 @@ export function Home() {
 						</li>
 					</ul>
 				</div>
-				<div className="d-flex justify-content-center finalbut">
-					<button type="button" className="btn btn-danger DelAll ">
-						{counter == 0 ? "Nothing to delete" : " "}
-					</button>
+			<div className="d-flex justify-content-center finalbut">
+					{counter == 0 ? (
+						<p>Nothing to delete</p>
+					) : (
+						<p>You have some things to do</p>
+					)}
 				</div>
 			</div>
 		</>
